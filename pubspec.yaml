@@ -48,6 +48,46 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/images/profile_photo.jpg
+    - lib/images/Screenshot (109).jpg
+    - lib/images/Screenshot (104).jpg
+    - lib/images/Screenshot (105).jpg
+    - lib/images/Screenshot (106).jpg
+    - lib/images/Screenshot (107).jpg
+    - lib/images/Screenshot (108).jpg
+    - lib/images/festnight.jpg
+    - lib/images/robokriti.jpg
+    - lib/images/Screenshot (112).jpg
+    - lib/images/informals.jpg
+    - lib/images/pixels.jpg
+    - lib/images/enigma.jpg
+    - lib/images/techprastuti.jpg
+    - lib/images/codezilla.jpg
+    - lib/images/incognito.jpg
+    - lib/images/bizgyan.jpg
+    - lib/images/techneeti.jpg
+    - lib/images/world.jpg
+    - lib/images/cyber.jpg
+    - lib/images/app.jpg
+    - lib/images/bridge_design.jpg
+    - lib/images/ai.jpg
+    - lib/images/campus.jpg
+    - lib/images/shresth.jpg
+    - lib/images/kshitiz.jpg
+    - lib/images/krishna.jpg
+    - lib/images/pratyush.jpg
+    - lib/images/debansho.jpg
+    - lib/images/arpit.jpg
+    - lib/images/prince.jpg
+    - lib/images/prajjawal_jaiswal.jpg
+    - lib/images/ayushi_verma.jpg
+    - lib/images/arima.jpg
+    - lib/images/akansha.jpg
+    - lib/images/chitrakshi.jpg
+    - lib/images/ruchi.jpg
+    - lib/images/prajjawal_singh.jpg
+    - lib/images/danish.jpg
+    - lib/images/yashi.jpg
+    - lib/images/swapnil_gupta.jpg
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg

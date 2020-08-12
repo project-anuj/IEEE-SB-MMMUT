@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testing/bloc/navigation_bloc.dart';
 import 'package:testing/menu_dashboard_layout/dashboard.dart';
 import 'package:testing/ui/contact_page.dart';
-import 'package:testing/ui/developer_page.dart';
 import 'package:testing/ui/events_page.dart';
 import 'package:testing/ui/my_cards_page.dart';
 import 'package:testing/ui/workshops_page.dart';
@@ -106,8 +105,6 @@ class _MenuDashboardLayoutState extends State<MenuDashboardLayout>
       return 2;
     } else if (navigationState is ContactPage) {
       return 3;
-    } else if (navigationState is DeveloperPage) {
-      return 4;
     } else {
       return 0;
     }

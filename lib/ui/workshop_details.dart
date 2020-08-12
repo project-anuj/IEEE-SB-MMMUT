@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WorkshopsDescription extends StatelessWidget {
-  String image;
-  String text;
-  String description;
+  final String image;
+  final String text;
+  final String description;
   WorkshopsDescription({Key key, this.image, this.text, this.description})
       : super(key: key);
   @override
@@ -18,7 +18,7 @@ class WorkshopsDescription extends StatelessWidget {
           Container(
             width: width,
             height: height / 2,
-            child: Image.network(
+            child: Image.asset(
               image,
               fit: BoxFit.cover,
             ),

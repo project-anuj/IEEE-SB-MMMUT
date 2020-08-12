@@ -36,7 +36,7 @@ class Profile extends StatelessWidget {
                   CircleAvatar(
                     radius: 90,
                     backgroundColor: Colors.teal[200],
-                    backgroundImage: NetworkImage(imageLink),
+                    backgroundImage: AssetImage(imageLink),
                   ),
                   SizedBox(
                     height: 20,
