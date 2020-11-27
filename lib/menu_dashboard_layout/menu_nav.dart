@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testing/bloc/navigation_bloc.dart';
@@ -122,7 +123,7 @@ class MenuNav extends StatelessWidget {
                       FlatButton(
                         padding: EdgeInsets.all(0.0),
                         onPressed: () {
-                          launch('https://www.techsrijan.org/');
+                          launch('http://techsrijan.org/');
                         },
                         colorBrightness: Brightness.light,
                         child: Icon(
@@ -147,7 +148,7 @@ class MenuNav extends StatelessWidget {
                       FlatButton(
                         onPressed: () {
                           launch(
-                              'https://www.linkedin.com/in/ieee-student-branch-madan-mohan-malaviya-university-of-technology-57a27b1a6/');
+                              'https://www.linkedin.com/in/ieee-mmmut-57a27b1a6/');
                         },
                         colorBrightness: Brightness.light,
                         child: Icon(
@@ -156,7 +157,44 @@ class MenuNav extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(3.0, 8, 170, 8),
+                    child: Divider(
+                      thickness: 3,
+                    ),
+                  ),
+                  Text(
+                    "Developer :",
+                    style: TextStyle(color: Colors.white, fontSize: 22),
+                  ),
+                  ButtonBar(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      FlatButton(
+                          onPressed: () {
+                            launch(
+                                'https://www.instagram.com/anujvishwakarma206/');
+                          },
+                          colorBrightness: Brightness.light,
+                          child: Icon(
+                            FontAwesomeIcons.instagram,
+                            color: Colors.red,
+                          )),
+                      FlatButton(
+                        onPressed: () {
+                          launch(
+                              'https://www.linkedin.com/in/anuj-vishwakarma-baa18818a/');
+                        },
+                        colorBrightness: Brightness.light,
+                        child: Icon(
+                          FontAwesomeIcons.linkedin,
+                          color: Colors.blueAccent,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

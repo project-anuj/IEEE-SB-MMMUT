@@ -1,7 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:testing/bloc/navigation_bloc.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:testing/live_page.dart';
 
 class MyCardsPage extends StatefulWidget with NavigationStates {
   final Animation<Offset> slideAnimation;
@@ -21,25 +23,25 @@ class MyCardsPage extends StatefulWidget with NavigationStates {
 }
 
 class _MyCardsPageState extends State<MyCardsPage> {
-  int _current = 0;
-
-  final List<String> imgList = [
-    'lib/images/Screenshot (109).jpg',
-    'lib/images/Screenshot (108).jpg',
-    'lib/images/Screenshot (107).jpg',
-    'lib/images/Screenshot (106).jpg',
-    'lib/images/Screenshot (105).jpg',
-    'lib/images/Screenshot (104).jpg',
-    'lib/images/Screenshot (112).jpg',
-  ];
-  List<T> map<T>(List list, Function handler) {
-    List<T> result = [];
-    for (var i = 0; i < list.length; i++) {
-      result.add(handler(i, list[i]));
-    }
-    return result;
-  }
-
+  // int _current = 0;
+  //
+  // final List<String> imgList = [
+  //   'lib/images/Screenshot (109).jpg',
+  //   'lib/images/Screenshot (108).jpg',
+  //   'lib/images/Screenshot (107).jpg',
+  //   'lib/images/Screenshot (106).jpg',
+  //   'lib/images/Screenshot (105).jpg',
+  //   'lib/images/Screenshot (104).jpg',
+  //   'lib/images/Screenshot (112).jpg',
+  // ];
+  // List<T> map<T>(List list, Function handler) {
+  //   List<T> result = [];
+  //   for (var i = 0; i < list.length; i++) {
+  //     result.add(handler(i, list[i]));
+  //   }
+  //   return result;
+  // }
+  //
   Widget makeItem(image, title) {
     return AspectRatio(
       aspectRatio: 1 / 1,
@@ -69,6 +71,28 @@ class _MyCardsPageState extends State<MyCardsPage> {
     );
   }
 
+  // items(double width) {
+  //   return imgList.map((imgUrl) {
+  //     return Builder(builder: (BuildContext context) {
+  //       return Card(
+  //         margin: EdgeInsets.symmetric(horizontal: 10.0),
+  //         child: Container(
+  //           width: width,
+  //           decoration: BoxDecoration(
+  //             color: Colors.green,
+  //           ),
+  //           child: (imgUrl == null || imgUrl == '')
+  //               ? CircularProgressIndicator()
+  //               : Image.asset(
+  //                   imgUrl,
+  //                   fit: BoxFit.fill,
+  //                 ),
+  //         ),
+  //       );
+  //     });
+  //   }).toList();
+  // }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -91,6 +115,31 @@ class _MyCardsPageState extends State<MyCardsPage> {
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black),
           ),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => LivePage()));
+              },
+              child: Center(
+                  child: Shimmer.fromColors(
+                baseColor: Colors.red,
+                highlightColor: Colors.yellow,
+                child: Text(
+                  "LIVE",
+                  style: TextStyle(
+                    letterSpacing: 2,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              )),
+            ),
+            SizedBox(
+              width: 20,
+            ),
+          ],
         ),
         body: Stack(
           children: <Widget>[
@@ -106,66 +155,81 @@ class _MyCardsPageState extends State<MyCardsPage> {
             ),
             ListView(
               children: <Widget>[
-                SizedBox(
-                  height: height / 20,
-                ),
                 Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      CarouselSlider(
-                        height: 200,
-                        enlargeCenterPage: true,
-                        autoPlay: true,
-                        autoPlayInterval: Duration(seconds: 2),
-                        autoPlayAnimationDuration: Duration(milliseconds: 2000),
-                        pauseAutoPlayOnTouch: Duration(seconds: 10),
-                        initialPage: 0,
-                        onPageChanged: (index) {
-                          setState(() {
-                            _current = index;
-                          });
-                        },
-                        items: imgList.map((imgUrl) {
-                          return Builder(builder: (BuildContext context) {
-                            return Card(
-                              margin: EdgeInsets.symmetric(horizontal: 10.0),
-                              child: Container(
-                                width: width,
-                                decoration: BoxDecoration(
-                                  color: Colors.green,
-                                ),
-                                child: Image.asset(
-                                  imgUrl,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            );
-                          });
-                        }).toList(),
+                      Container(
+                        // margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                        // padding: const EdgeInsets.all(0.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40.0),
+                        ),
+                        height: 225,
+                        // padding: const EdgeInsets.all(8.0),
+                        // width: MediaQuery.of(context).size.width - 20,
+                        child: Carousel(
+                          boxFit: BoxFit.fill,
+                          animationCurve: Curves.fastOutSlowIn,
+                          // borderRadius: true,
+                          dotIncreasedColor: Color(0xFFFF335C),
+                          dotBgColor: Colors.transparent,
+                          indicatorBgPadding: 1.0,
+                          showIndicator: true,
+                          overlayShadow: true,
+                          dotColor: Colors.greenAccent,
+                          dotSize: 5.0,
+                          animationDuration: Duration(milliseconds: 2000),
+                          images: [
+                            AssetImage('lib/images/Screenshot (109).jpg'),
+                            AssetImage('lib/images/Screenshot (108).jpg'),
+                            AssetImage('lib/images/Screenshot (107).jpg'),
+                            AssetImage('lib/images/Screenshot (106).jpg'),
+                            AssetImage('lib/images/Screenshot (105).jpg'),
+                            AssetImage('lib/images/Screenshot (104).jpg'),
+                            AssetImage('lib/images/Screenshot (112).jpg'),
+                          ],
+                        ),
                       ),
+                      // CarouselSlider(
+                      //   height: 200,
+                      //   autoPlay: true,
+                      //   autoPlayInterval: Duration(seconds: 2),
+                      //   autoPlayAnimationDuration: Duration(milliseconds: 2000),
+                      //   autoPlayCurve: Curves.fastOutSlowIn,
+                      //   pauseAutoPlayOnTouch: Duration(seconds: 10),
+                      //   aspectRatio: 2.0,
+                      //   enableInfiniteScroll: true,
+                      //   viewportFraction: 0.8,
+                      //   onPageChanged: (index) {
+                      //     setState(() {
+                      //       _current = index;
+                      //     });
+                      //   },
+                      //   items: items(width),
+                      // ),
+                      // SizedBox(
+                      //   height: 10,
+                      // ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: map<Widget>(imgList, (index, url) {
+                      //     return Container(
+                      //       width: 6.0,
+                      //       height: 8.0,
+                      //       margin: EdgeInsets.symmetric(
+                      //           vertical: 0.0, horizontal: 2.0),
+                      //       decoration: BoxDecoration(
+                      //           shape: BoxShape.circle,
+                      //           color: _current == index
+                      //               ? Colors.redAccent
+                      //               : Colors.green),
+                      //     );
+                      //   }),
+                      // ),
                       SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: map<Widget>(imgList, (index, url) {
-                          return Container(
-                            width: 6.0,
-                            height: 8.0,
-                            margin: EdgeInsets.symmetric(
-                                vertical: 0.0, horizontal: 2.0),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: _current == index
-                                    ? Colors.redAccent
-                                    : Colors.green),
-                          );
-                        }),
-                      ),
-                      SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -239,8 +303,8 @@ class _MyCardsPageState extends State<MyCardsPage> {
                                       'Ethical Hacking'),
                                   makeItem('lib/images/app.jpg',
                                       'Android App Development'),
-                                  makeItem('lib/images/bridge_design.jpg',
-                                      'Bridge Design Workshop'),
+                                  makeItem('lib/images/python.jpg',
+                                      'Python Workshop'),
                                   CircleAvatar(
                                     backgroundColor: Colors.grey,
                                     child: InkWell(

@@ -3,11 +3,18 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Profile extends StatelessWidget {
+  final String text;
   final String name;
   final int index;
   final String imageLink;
   final String facebook;
-  Profile({Key key, this.facebook, this.imageLink, this.name, this.index})
+  Profile(
+      {Key key,
+      this.text,
+      this.facebook,
+      this.imageLink,
+      this.name,
+      this.index})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -54,7 +61,7 @@ class Profile extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Executive Member of IEEE',
+                    text,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.teal.shade100,

@@ -36,10 +36,13 @@ class _WorkshopsPageState extends State<WorkshopsPage> {
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
-                  Colors.black.withOpacity(.8),
-                  Colors.black.withOpacity(.2)
-                ])),
+                gradient: LinearGradient(
+                  begin: Alignment.bottomRight,
+                  colors: [
+                    Colors.black.withOpacity(.8),
+                    Colors.black.withOpacity(.2)
+                  ],
+                )),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -123,8 +126,8 @@ class _WorkshopsPageState extends State<WorkshopsPage> {
                                       'Android App Development',
                                       'Still Downloading the apps from Google Play Store??? It\'s time to build your own!!!'),
                                   makeItem(
-                                      'lib/images/bridge_design.jpg',
-                                      'Bridge Design Workshop',
+                                      'lib/images/python.jpg',
+                                      'Python Workshop',
                                       'Learn the best practical and economical methods for evaluating ,insecting,strengthening and rehabilitating bridge'),
                                   makeItem(
                                       'lib/images/ai.jpg',
