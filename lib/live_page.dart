@@ -59,7 +59,7 @@ class _LivePageState extends State<LivePage> {
                                     FlatButton(
                                         onPressed: () {
                                           if (_keyController.text ==
-                                              'techSRIJAN') {
+                                              '') {
                                             _keyController.text = '';
                                             Navigator.of(context)
                                                 .pushReplacement(
