@@ -6,7 +6,6 @@ import 'package:testing/ui/contact_page.dart';
 import 'package:testing/ui/events_page.dart';
 import 'package:testing/ui/my_cards_page.dart';
 import 'package:testing/ui/workshops_page.dart';
-
 import 'menu.dart';
 
 final Color backgroundColor = Color(0xFF4A4A58);

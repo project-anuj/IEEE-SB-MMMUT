@@ -11,7 +11,7 @@ description: A new Flutter application.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -36,6 +36,8 @@ dependencies:
   image_picker: ^0.6.7+14
   firebase_auth: ^0.18.3
   cached_network_image:
+  firebase_messaging: ^7.0.3
+  transparent_image:
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +57,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/images/profile_photo.jpg
     - lib/images/Screenshot (109).jpg
     - lib/images/Screenshot (104).jpg
     - lib/images/Screenshot (105).jpg
@@ -71,7 +72,6 @@ flutter:
     - lib/images/techprastuti.jpg
     - lib/images/codezilla.jpg
     - lib/images/incognito.jpg
-    - lib/images/bizgyan.jpg
     - lib/images/techneeti.jpg
     - lib/images/world.jpg
     - lib/images/cyber.jpg
@@ -79,40 +79,8 @@ flutter:
     - lib/images/bridge_design.jpg
     - lib/images/ai.jpg
     - lib/images/campus.jpg
-    - lib/images/shresth.jpg
-    - lib/images/kshitiz.jpg
-    - lib/images/krishna.jpg
-    - lib/images/pratyush.jpg
-    - lib/images/debansho.jpg
-    - lib/images/arpit.jpg
-    - lib/images/prince.jpg
-    - lib/images/prajjawal_jaiswal.jpg
-    - lib/images/ayushi_verma.jpg
-    - lib/images/arima.jpg
-    - lib/images/akansha.jpg
-    - lib/images/chitrakshi.jpg
-    - lib/images/ruchi.jpg
-    - lib/images/prajjawal_singh.jpg
-    - lib/images/danish.jpg
-    - lib/images/yashi.jpg
-    - lib/images/swapnil_gupta.jpg
     - lib/images/python.jpg
-    - lib/images/shreyah Singh.jpg
-    - lib/images/anupriya.jpg
-    - lib/images/ashish.jpg
-    - lib/images/asif.jpg
-    - lib/images/chetan.jpg
-    - lib/images/kaushal.jpg
-    - lib/images/madhusudan.jpg
-    - lib/images/mayan.jpg
-    - lib/images/priyanshu_gothwal.jpg
     - lib/images/python.jpg
-    - lib/images/saurabh.jpg
-    - lib/images/shivaseesh.jpg
-    - lib/images/shreyah Singh.jpg
-    - lib/images/surya.jpg
-    - lib/images/vimlendu.jpg
-    - lib/images/Vivek Bhatt.jpg
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg

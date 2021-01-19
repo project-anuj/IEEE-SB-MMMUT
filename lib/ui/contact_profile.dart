@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -42,8 +43,9 @@ class Profile extends StatelessWidget {
                 children: <Widget>[
                   CircleAvatar(
                     radius: 90,
-                    backgroundColor: Colors.teal[200],
-                    backgroundImage: AssetImage(imageLink),
+                    // backgroundColor: Colors.teal[200],
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: NetworkImage(imageLink, scale: 15),
                   ),
                   SizedBox(
                     height: 20,

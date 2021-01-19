@@ -18,9 +18,9 @@ class EventDescription extends StatelessWidget {
           Container(
             width: width,
             height: height / 2,
-            child: Image.asset(
+            child: Image.network(
               image,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           Padding(

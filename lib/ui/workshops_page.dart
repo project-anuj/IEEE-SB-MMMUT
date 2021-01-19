@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'workshop_details.dart';
@@ -30,8 +31,8 @@ class _WorkshopsPageState extends State<WorkshopsPage> {
           margin: EdgeInsets.all(15),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              image:
-                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+              image: DecorationImage(
+                  image: NetworkImage(image), fit: BoxFit.cover)),
           child: Container(
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -94,59 +95,25 @@ class _WorkshopsPageState extends State<WorkshopsPage> {
                     bottomRight: Radius.circular(40),
                   )),
             ),
-            ListView(
-              children: <Widget>[
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Container(
-                              height: height,
-                              child: ListView(
-                                scrollDirection: Axis.vertical,
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  makeItem(
-                                      'lib/images/cyber.jpg',
-                                      'Ethical Hacking ',
-                                      'Are your Facebook Passwords Safe? Is Someone Monitoring Your Gmail Accounts? Well No Need to Worry!!!'),
-                                  makeItem(
-                                      'lib/images/app.jpg',
-                                      'Android App Development',
-                                      'Still Downloading the apps from Google Play Store??? It\'s time to build your own!!!'),
-                                  makeItem(
-                                      'lib/images/python.jpg',
-                                      'Python Workshop',
-                                      'Learn the best practical and economical methods for evaluating ,insecting,strengthening and rehabilitating bridge'),
-                                  makeItem(
-                                      'lib/images/ai.jpg',
-                                      'Artificial Intelligence Workshop',
-                                      'It is difficult to think of a major industry that AI will not transform'),
-                                  SizedBox(
-                                    height: 110,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            )
+            StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection('workshopImageURLs')
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  return !snapshot.hasData
+                      ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : ListView.builder(
+                          itemCount: snapshot.data.documents.length,
+                          itemBuilder: (context, index) {
+                            return makeItem(
+                                snapshot.data.documents[index].get('url'),
+                                snapshot.data.documents[index].get('title'),
+                                snapshot.data.documents[index]
+                                    .get('description'));
+                          });
+                })
           ],
         ),
       ),
